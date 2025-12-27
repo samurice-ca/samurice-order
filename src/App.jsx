@@ -93,8 +93,7 @@ export default function App() {
       const res = await fetch(MAKE_WEBHOOK_URL, {
   method: 'POST',
   headers: {
-    'Content-Type': 'application/json',
-    'X-ORDER-KEY': import.meta.env.VITE_ORDER_KEY
+    'Content-Type': 'application/json' 
   },
   body: JSON.stringify(payload)
       });
