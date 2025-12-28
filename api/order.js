@@ -9,10 +9,10 @@ export default async function handler(req, res) {
 
   try {
     // 簡易認証（任意だが強くおすすめ）
-    const key = req.headers["x-order-key"];
-    if (!key || key !== process.env.ORDER_KEY) {
-      return res.status(401).json({ ok: false, error: "Unauthorized" });
-    }
+    //const key = req.headers["x-order-key"];
+    //if (!key || key !== process.env.ORDER_KEY) {
+    //  return res.status(401).json({ ok: false, error: "Unauthorized" });
+    //}
 
     const makeUrl = process.env.MAKE_WEBHOOK_URL;
     if (!makeUrl) {
