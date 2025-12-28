@@ -26,7 +26,9 @@ export default async function handler(req, res) {
     });
 
     const text = await r.text().catch(() => "");
-    return res.status(r.ok ? 200 : 502).send(text || (r.ok ? "ok" : "bad_gateway"));
+return res.status(r.ok ? 200 : 502).send(
+  JSON.stringify({ ok: r.ok, make_status: r.status, make_body: text }, null, 2)
+);
   } catch (e) {
     return res.status(500).json({ ok: false, error: e.message });
   }
