@@ -48,7 +48,7 @@ const CATALOG = {
   },
 
   // HelloNori PB
-  HNPB15: { sku: "HNPB15", name: "HNPB Kinmemai Rice 5kg", moq: 10, qtyOptions: [10, 15, 20, 25, 30, 40, 50] },
+  HNPB15: { sku: "HNPB15", name: "HNPB Kinmemai Rice 5kg", moq: 10, qtyOptions: [10, 15, 20, 25, 30, 40, 50, 60, 70, 80] },
   HNPB13: { sku: "HNPB13", name: "HNPB Dried Seaweed", moq: 1, qtyOptions: [1, 2, 3] },
   HNPB69: { sku: "HNPB69", name: "HNPB Wasabi 800g x 15/case - Frozen", moq: 1, qtyOptions: [1, 2, 3, 4, 5] },
   HNPB70: { sku: "HNPB70", name: "HNPB Hamachi Loin 10kg - Frozen", moq: 1, qtyOptions: [1, 2, 3, 4, 5] },
