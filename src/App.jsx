@@ -23,7 +23,7 @@ const BRAND = "#E6C000";
  * - public/products/kinmemai-white-5kg.jpg
  */
 const LOGO_SRC = "/logo.png";
-const PRODUCT_IMG = "/products/kinmemai-white-5kg.jpg";
+
 
 /**
  * ✅ 商品定義（SKUは裏だけ。画面には出さない）
@@ -33,7 +33,6 @@ const PRODUCTS = [
   {
     sku: "ID21",
     name: "Kinmemai White 5kg",
-    image: PRODUCT_IMG,
     moq: 5,
     // プルダウン候補（必要なら増やしてOK）
     qtyOptions: [5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50],
@@ -232,19 +231,7 @@ export default function App() {
 
           return (
             <div key={p.sku} className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
-              {/* Image */}
-              <div className="w-full h-44 bg-slate-100 overflow-hidden">
-                <img
-                  src={p.image}
-                  alt={p.name}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    // 画像がない場合の見た目崩れ防止
-                    e.currentTarget.style.display = "none";
-                  }}
-                />
-              </div>
-
+              
               {/* Content */}
               <div className="p-4">
                 <div className="flex items-start justify-between gap-3">
