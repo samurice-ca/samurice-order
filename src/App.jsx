@@ -5,7 +5,7 @@ import { Package, CheckCircle2, Loader2, User, AlertCircle } from 'lucide-react'
  * 【重要】ここをあなたの ID / URL に書き換えてください
  */
 const LIFF_ID = "2008786844-ebqsTmW8";
-const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/pgxq22af2owhfyp2l7jgw5ngw1d0x7h7";
+const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/dbrzv2nulucafl1paf8ghbgubd44zew7";
 
 const PRODUCTS = [
   {
@@ -90,13 +90,14 @@ export default function App() {
         }))
       };
 
-      const res = await fetch(MAKE_WEBHOOK_URL, {
-  method: 'POST',
+      const res = await fetch("/api/order", {
+  method: "POST",
   headers: {
-    'Content-Type': 'application/json' 
+    "Content-Type": "application/json",
+    "X-ORDER-KEY": import.meta.env.VITE_ORDER_KEY
   },
-  body: JSON.stringify(payload)
-      });
+  body: JSON.stringify(payload),
+});
 
       if (!res.ok) {
         const text = await res.text().catch(() => "");
