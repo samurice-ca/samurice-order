@@ -50,7 +50,6 @@ const CATALOG = {
   // HelloNori PB
   HNPB15: { sku: "HNPB15", name: "HNPB Kinmemai Rice 5kg", moq: 10, qtyOptions: [10, 15, 20, 25, 30, 40, 50] },
   HNPB13: { sku: "HNPB13", name: "HNPB Dried Seaweed", moq: 1, qtyOptions: [1, 2, 3] },
-  HNPB14: { sku: "HNPB14", name: "HNPB Dried Seaweed with Logo", moq: 1, qtyOptions: [1, 2, 3] },
   HNPB69: { sku: "HNPB69", name: "HNPB Wasabi 800g x 15/case - Frozen", moq: 1, qtyOptions: [1, 2, 3, 4, 5] },
   HNPB70: { sku: "HNPB70", name: "HNPB Hamachi Loin 10kg - Frozen", moq: 1, qtyOptions: [1, 2, 3, 4, 5] },
   HNPB23: { sku: "HNPB23", name: "Matcha 500g", moq: 10, qtyOptions: [10, 20, 30, 40] },
@@ -66,7 +65,7 @@ const CATALOG = {
  */
 const getVisibleSkus = (storeCode) => {
   if (HELLO_NORI_STORES.has(storeCode)) {
-    return ["HNPB15", "HNPB13", "HNPB14", "HNPB69", "HNPB70", "HNPB23", "HNPB25", "HNPB66", "HNPB65", "HNPB67", "HNPB94"];
+    return ["HNPB15", "HNPB13", "HNPB69", "HNPB70", "HNPB23", "HNPB25", "HNPB66", "HNPB65", "HNPB67", "HNPB94"];
   }
   return ["ID21"];
 };
