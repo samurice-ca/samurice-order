@@ -35,6 +35,11 @@ const HELLO_NORI_STORES = new Set([
 ]);
 
 /**
+ * ✅ ABURI 対象店舗コード
+ */
+const ABURI_STORES = new Set(["ABURI_AMA", "ABURI_AMD"]);
+
+/**
  * ✅ 商品カタログ（SKU=OdooのInternal Reference / default_code）
  * 画面にはSKUは表示しない（裏だけ）
  */
@@ -45,6 +50,26 @@ const CATALOG = {
     name: "Kinmemai White 5kg",
     moq: 5,
     qtyOptions: [5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100],
+  },
+
+  // ✅ ABURI 追加SKU
+  ID19: {
+    sku: "ID19",
+    name: "Kinmemai White 2kg Retail",
+    moq: 5,
+    qtyOptions: [5, 10, 15, 20, 25, 30],
+  },
+  ID16: {
+    sku: "ID16",
+    name: "Kinmemai Brown 2kg Retail",
+    moq: 5,
+    qtyOptions: [5, 10, 15, 20, 25, 30],
+  },
+  ID22: {
+    sku: "ID22",
+    name: "Pancake Mix 1 case",
+    moq: 1,
+    qtyOptions: [1, 2, 3, 4, 5],
   },
 
   // HelloNori PB
@@ -64,9 +89,17 @@ const CATALOG = {
  * ✅ store_code から表示SKUを決める
  */
 const getVisibleSkus = (storeCode) => {
+  // HelloNori PB
   if (HELLO_NORI_STORES.has(storeCode)) {
     return ["HNPB15", "HNPB13", "HNPB69", "HNPB70", "HNPB23", "HNPB25", "HNPB66", "HNPB65", "HNPB67", "HNPB94"];
   }
+
+  // ✅ ABURI：通常店舗（基本）＋追加SKU
+  if (ABURI_STORES.has(storeCode)) {
+    return ["ID21", "ID19", "ID16", "ID22"];
+  }
+
+  // 通常店舗（基本）
   return ["ID21"];
 };
 
@@ -252,9 +285,8 @@ export default function App() {
       {/* Main */}
       <main className="p-4 space-y-4">
         <div className="p-4 rounded-2xl shadow-sm border bg-white" style={{ borderColor: "#f3e7a1" }}>
-          <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
-            Order Items
-          </p>
+          <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Order Items</p>
+
           {!HELLO_NORI_STORES.has(storeCode) && (
             <p className="text-xs text-slate-500 mt-1">
               ※ Kinmemai White 5kg は <b>5個から</b>注文できます
@@ -292,9 +324,7 @@ export default function App() {
                       </option>
                     ))}
                   </select>
-                  <p className="text-[10px] text-slate-400 mt-1">
-                    {currentQty ? `Selected: ${currentQty}` : "Not selected"}
-                  </p>
+                  <p className="text-[10px] text-slate-400 mt-1">{currentQty ? `Selected: ${currentQty}` : "Not selected"}</p>
                 </div>
               </div>
             </div>
@@ -306,9 +336,7 @@ export default function App() {
       <footer className="fixed bottom-0 left-0 right-0 p-5 bg-white/90 backdrop-blur-md border-t border-slate-100">
         <div className="max-w-md mx-auto flex flex-col gap-3">
           <div className="flex justify-between items-end px-1">
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-              Total Items
-            </span>
+            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Total Items</span>
             <span className="text-2xl font-black text-slate-900">{totalQty}</span>
           </div>
 
