@@ -44,7 +44,7 @@ const CATALOG = {
     sku: "ID21",
     name: "Kinmemai White 5kg",
     moq: 5,
-    qtyOptions: [5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 35, 40, 45, 50],
+    qtyOptions: [5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100],
   },
 
   // HelloNori PB
