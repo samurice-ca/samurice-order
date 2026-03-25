@@ -81,7 +81,6 @@ const CATALOG = {
   HNPB25: { sku: "HNPB25", name: "Sencha 1kg", moq: 5, qtyOptions: [5, 10, 15, 20] },
   HNPB66: { sku: "HNPB66", name: "Square Sushi Tray", moq: 1, qtyOptions: [1, 2, 3] },
   HNPB65: { sku: "HNPB65", name: "Rectangle Sushi Tray", moq: 1, qtyOptions: [1, 2, 3] },
-  HNPB67: { sku: "HNPB67", name: "Tsukiji Box", moq: 1, qtyOptions: [1, 2, 3] },
   HNPB94: { sku: "HNPB94", name: "Blue Cloth (pack)", moq: 1, qtyOptions: [1, 2, 3] },
 };
 
