@@ -53,6 +53,12 @@ const CATALOG = {
   },
 
   // ✅ ABURI 追加SKU
+  ID92: {
+    sku: "ID92",
+    name: "Onigiri Film Nori ",
+    moq: 1,
+    qtyOptions: [1, 2, 3],
+  },
   ID19: {
     sku: "ID19",
     name: "Kinmemai White 2kg Retail",
@@ -95,7 +101,7 @@ const getVisibleSkus = (storeCode) => {
 
   // ✅ ABURI：通常店舗（基本）＋追加SKU
   if (ABURI_STORES.has(storeCode)) {
-    return ["ID21", "ID19", "ID16", "ID22"];
+    return ["ID21", "ID92" , "ID19", "ID16", "ID22"];
   }
 
   // 通常店舗（基本）
