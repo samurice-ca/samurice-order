@@ -37,7 +37,7 @@ const HELLO_NORI_STORES = new Set([
 /**
  * ✅ ABURI 対象店舗コード
  */
-const ABURI_STORES = new Set(["ABURI_AMA", "ABURI_AMD"]);
+const ABURI_STORES = new Set(["ABURI_AMA", "ABURI_AMD" ,"ABURI_Minami_vancouver"]);
 
 /**
  * ✅ 商品カタログ（SKU=OdooのInternal Reference / default_code）
