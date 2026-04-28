@@ -71,6 +71,18 @@ const CATALOG = {
     moq: 5,
     qtyOptions: [5, 10, 15, 20, 25, 30],
   },
+  ID104: {
+    sku: "ID104",
+    name: "Kinmemai White 4kg Retail",
+    moq: 5,
+    qtyOptions: [5, 10, 15, 20, 25, 30],
+  },
+  ID105: {
+    sku: "ID105",
+    name: "Kinmemai Brown 4kg Retail",
+    moq: 5,
+    qtyOptions: [5, 10, 15, 20, 25, 30],
+  },
   ID22: {
     sku: "ID22",
     name: "Pancake Mix 1 case",
@@ -101,7 +113,7 @@ const getVisibleSkus = (storeCode) => {
 
   // ✅ ABURI：通常店舗（基本）＋追加SKU
   if (ABURI_STORES.has(storeCode)) {
-    return ["ID21", "ID92" , "ID19", "ID16", "ID22"];
+    return ["ID21", "ID92" , "ID19", "ID16", "ID104", "ID105", "ID22"];
   }
 
   // 通常店舗（基本）
