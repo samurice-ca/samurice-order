@@ -59,6 +59,12 @@ const CATALOG = {
     moq: 1,
     qtyOptions: [1, 2, 3],
   },
+   ID119: {
+    sku: "ID119",
+    name: "Temaki Film Nori ",
+    moq: 1,
+    qtyOptions: [1, 2, 3],
+   },
   ID19: {
     sku: "ID19",
     name: "Kinmemai White 2kg Retail",
@@ -108,12 +114,12 @@ const CATALOG = {
 const getVisibleSkus = (storeCode) => {
   // HelloNori PB
   if (HELLO_NORI_STORES.has(storeCode)) {
-    return ["HNPB15", "HNPB13", "HNPB69", "HNPB70", "HNPB23", "HNPB25", "HNPB66", "HNPB65", "HNPB67", "HNPB94"];
+    return ["HNPB15", "HNPB13", "HNPB69", "HNPB23", "HNPB25", "HNPB66", "HNPB65", "HNPB67", "HNPB94"];
   }
 
   // ✅ ABURI：通常店舗（基本）＋追加SKU
   if (ABURI_STORES.has(storeCode)) {
-    return ["ID21", "ID92" , "ID19", "ID16", "ID104", "ID105", "ID22"];
+    return ["ID21", "ID92" , "ID119", "ID19", "ID16", "ID104", "ID105", "ID22"];
   }
 
   // 通常店舗（基本）
