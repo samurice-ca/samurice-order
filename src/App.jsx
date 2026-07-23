@@ -114,7 +114,7 @@ const CATALOG = {
 const getVisibleSkus = (storeCode) => {
   // HelloNori PB
   if (HELLO_NORI_STORES.has(storeCode)) {
-    return ["HNPB15", "HNPB13", "HNPB69", "HNPB23", "HNPB25", "HNPB66", "HNPB65", "HNPB67", "HNPB94"];
+    return ["HNPB15", "HNPB13", "HNPB69", "HNPB23", "HNPB25", "HNPB66", "HNPB65", "HNPB67"];
   }
 
   // ✅ ABURI：通常店舗（基本）＋追加SKU
