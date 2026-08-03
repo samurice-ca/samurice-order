@@ -53,8 +53,8 @@ const CATALOG = {
   },
 
   // ✅ ABURI 追加SKU
-  ID92: {
-    sku: "ID92",
+  ID116: {
+    sku: "ID116",
     name: "Onigiri Film Nori ",
     moq: 1,
     qtyOptions: [1, 2, 3],
@@ -119,7 +119,7 @@ const getVisibleSkus = (storeCode) => {
 
   // ✅ ABURI：通常店舗（基本）＋追加SKU
   if (ABURI_STORES.has(storeCode)) {
-    return ["ID21", "ID92" , "ID119", "ID19", "ID16", "ID104", "ID105", "ID22"];
+    return ["ID21", "ID116" , "ID119", "ID19", "ID16", "ID104", "ID105", "ID22"];
   }
 
   // 通常店舗（基本）
