@@ -35,6 +35,11 @@ const HELLO_NORI_STORES = new Set([
 ]);
 
 /**
+ * ✅ SAO-4 対象店舗コード
+ */
+const SAO4_STORES = new Set(["Zenya_vancouver"]);
+
+/**
  * ✅ ABURI 対象店舗コード
  */
 const ABURI_STORES = new Set(["ABURI_AMA", "ABURI_AMD" ,"ABURI_Minami_vancouver"]);
@@ -45,9 +50,9 @@ const ABURI_STORES = new Set(["ABURI_AMA", "ABURI_AMD" ,"ABURI_Minami_vancouver"
  */
 const CATALOG = {
   // 通常店舗（基本）
-  ID21: {
-    sku: "ID21",
-    name: "Kinmemai White 5kg",
+  ID120: {
+    sku: "ID120",
+    name: "K-Rice White 4kg Kitchen",
     moq: 5,
     qtyOptions: [5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100],
   },
@@ -67,25 +72,25 @@ const CATALOG = {
    },
   ID19: {
     sku: "ID19",
-    name: "Kinmemai White 2kg Retail",
+    name: "K-Rice White 2kg Retail",
     moq: 5,
     qtyOptions: [5, 10, 15, 20, 25, 30],
   },
   ID16: {
     sku: "ID16",
-    name: "Kinmemai Brown 2kg Retail",
+    name: "K-Rice Brown 2kg Retail",
     moq: 5,
     qtyOptions: [5, 10, 15, 20, 25, 30],
   },
   ID104: {
     sku: "ID104",
-    name: "Kinmemai White 4kg Retail",
+    name: "K-Rice White 4kg Retail",
     moq: 5,
-    qtyOptions: [5, 10, 15, 20, 25, 30],
+    qtyOptions: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50],
   },
   ID105: {
     sku: "ID105",
-    name: "Kinmemai Brown 4kg Retail",
+    name: "K-Rice Brown 4kg Retail",
     moq: 5,
     qtyOptions: [5, 10, 15, 20, 25, 30],
   },
@@ -97,9 +102,9 @@ const CATALOG = {
   },
 
   // HelloNori PB
-  HNPB15: { sku: "HNPB15", name: "HNPB Kinmemai Rice 5kg", moq: 10, qtyOptions: [10, 15, 20, 25, 30, 40, 50, 60, 70, 80] },
+  HNPB15: { sku: "HNPB15", name: "HNPB K-Rice 5kg", moq: 10, qtyOptions: [10, 15, 20, 25, 30, 40, 50, 60, 70, 80] },
   HNPB13: { sku: "HNPB13", name: "HNPB Dried Seaweed", moq: 1, qtyOptions: [1, 2, 3] },
-  HNPB69: { sku: "HNPB69", name: "HNPB Wasabi 800g x 15/case - Frozen", moq: 1, qtyOptions: [1, 2, 3, 4, 5] },
+  HNPB69: { sku: "HNPB69", name: "HNPB Frozen Wasabi ", moq: 1, qtyOptions: [1, 2, 3, 4, 5] },
   HNPB70: { sku: "HNPB70", name: "HNPB Hamachi Loin 10kg - Frozen", moq: 1, qtyOptions: [1, 2, 3, 4, 5] },
   HNPB23: { sku: "HNPB23", name: "Matcha 500g", moq: 10, qtyOptions: [10, 20, 30, 40] },
   HNPB25: { sku: "HNPB25", name: "Sencha 1kg", moq: 5, qtyOptions: [5, 10, 15, 20] },
@@ -119,11 +124,16 @@ const getVisibleSkus = (storeCode) => {
 
   // ✅ ABURI：通常店舗（基本）＋追加SKU
   if (ABURI_STORES.has(storeCode)) {
-    return ["ID21", "ID116" , "ID119", "ID19", "ID16", "ID104", "ID105", "ID22"];
+    return ["ID120", "ID116" , "ID119", "ID19", "ID16", "ID104", "ID105", "ID22"];
+  }
+
+  // ✅ SAO4店舗：Zenyaのみ
+  if (SAO4_STORES.has(storeCode)) {
+    return ["ID104"];
   }
 
   // 通常店舗（基本）
-  return ["ID21"];
+  return ["ID120"];
 };
 
 export default function App() {
@@ -310,11 +320,7 @@ export default function App() {
         <div className="p-4 rounded-2xl shadow-sm border bg-white" style={{ borderColor: "#f3e7a1" }}>
           <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Order Items</p>
 
-          {!HELLO_NORI_STORES.has(storeCode) && (
-            <p className="text-xs text-slate-500 mt-1">
-              ※ Kinmemai White 5kg は <b>5個から</b>注文できます
-            </p>
-          )}
+      
         </div>
 
         {products.map((p) => {
